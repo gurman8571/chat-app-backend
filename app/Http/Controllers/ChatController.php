@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Chat;
+
+class ChatController extends Controller
+{
+      public function Index(Type $var = null)
+      {
+        $chats=Chat::with('users')->with('admin')->get();
+         //dd($admin);
+       return $chats;
+      }
+}
